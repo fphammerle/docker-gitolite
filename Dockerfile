@@ -26,6 +26,7 @@ VOLUME $SSHD_HOST_KEYS_DIR
 COPY sshd_config /etc/ssh/sshd_config
 EXPOSE 2200/tcp
 
+ENV GITOLITE_INITIAL_ADMIN_NAME=admin
 COPY entrypoint.sh /
 ENTRYPOINT ["/entrypoint.sh"]
 
