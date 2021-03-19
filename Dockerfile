@@ -4,6 +4,7 @@ ARG GITOLITE_PACKAGE_VERSION=3.6.11-2
 ARG GIT_ANNEX_PACKAGE_VERSION=7.20190129-3
 ARG GIT_PACKAGE_VERSION=1:2.20.1-2+deb10u3
 ARG OPENSSH_SERVER_PACKAGE_VERSION=1:7.9p1-10+deb10u2
+ARG TINI_PACKAGE_VERSION=0.18.0-1
 ARG USER=git
 ARG GITOLITE_HOME_PATH=/var/lib/gitolite
 ENV SSHD_HOST_KEYS_DIR=/etc/ssh/host_keys
@@ -13,6 +14,7 @@ RUN apt-get update \
         git=$GIT_PACKAGE_VERSION \
         gitolite3=$GITOLITE_PACKAGE_VERSION \
         openssh-server=$OPENSSH_SERVER_PACKAGE_VERSION \
+        tini=$TINI_PACKAGE_VERSION \
     && rm -rf /var/lib/apt/lists/* \
     && rm /etc/ssh/ssh_host_*_key* \
     && useradd --home-dir "$GITOLITE_HOME_PATH" --create-home "$USER" \
@@ -20,8 +22,6 @@ RUN apt-get update \
     && if grep --extended-regex --invert-match '^[a-z0-9_-]+:[\*!]:' /etc/shadow; then exit 1; fi \
     && mkdir "$SSHD_HOST_KEYS_DIR" \
     && chown -c "$USER" "$SSHD_HOST_KEYS_DIR"
-# TODO merge up
-RUN apt-get update && apt-get install --yes tini
 VOLUME $GITOLITE_HOME_PATH
 VOLUME $SSHD_HOST_KEYS_DIR
 

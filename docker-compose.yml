@@ -1,0 +1,29 @@
+version: '2.2'
+
+volumes:
+  ssh_host_keys:
+  gitolite_home:
+
+services:
+  sshd:
+    build: .
+    image: docker.io/fphammerle/gitolite
+    container_name: gitolite
+    environment:
+      GITOLITE_INITIAL_ADMIN_NAME: admin
+      GITOLITE_USER_PUBLIC_KEY_admin: ssh-rsa ...
+      #GITOLITE_USER_PUBLIC_KEY_alice: ssh-rsa ...
+      #GITOLITE_USER_PUBLIC_KEY_bob: ssh-rsa ...
+    read_only: true
+    volumes:
+    - ssh_host_keys:/etc/ssh/host_keys:rw
+    - gitolite_home:/var/lib/gitolite:rw
+    ports:
+    - '127.0.0.1:2200:2200'
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges]
+    # docker-compose >=2.2,<3
+    cpus: 0.4
+    mem_limit: 64M
+
+# https://docs.docker.com/compose/compose-file/compose-file-v2/
