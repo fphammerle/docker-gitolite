@@ -20,6 +20,8 @@ RUN apt-get update \
     && if grep --extended-regex --invert-match '^[a-z0-9_-]+:[\*!]:' /etc/shadow; then exit 1; fi \
     && mkdir "$SSHD_HOST_KEYS_DIR" \
     && chown -c "$USER" "$SSHD_HOST_KEYS_DIR"
+# TODO merge up
+RUN apt-get update && apt-get install --yes tini
 VOLUME $GITOLITE_HOME_PATH
 VOLUME $SSHD_HOST_KEYS_DIR
 
@@ -28,7 +30,7 @@ EXPOSE 2200/tcp
 
 ENV GITOLITE_INITIAL_ADMIN_NAME=admin
 COPY entrypoint.sh /
-ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT ["/usr/bin/tini", "--", "/entrypoint.sh"]
 
 USER $USER
 CMD ["/usr/sbin/sshd", "-D", "-e"]

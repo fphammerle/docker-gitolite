@@ -20,7 +20,8 @@ printenv | cut -d = -f 1 | while IFS= read -r var_name; do
         user="$(echo "$var_name" | cut -d _ -f 5-)"
         key_path="$HOME/container-entrypoint-user-public-keys/${user}.pub"
         mkdir --parents "$(dirname "$key_path")"
-        (set -x; printenv "$var_name" > "$key_path"; gitolite setup --pubkey "$key_path")
+        printenv "$var_name" > "$key_path"
+        (set -x; gitolite setup --pubkey "$key_path")
     fi
 done
 
