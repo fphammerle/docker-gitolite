@@ -1,7 +1,7 @@
-# docker: gitolite 🐳
+# docker: gitolite 💾 🐳 🐙
 
 [OpenSSH server](https://www.openssh.com/)
-with [gitolite](https://gitolite.com/gitolite/) command filter
+with [Gitolite](https://gitolite.com/gitolite/) command filter
 including support for [git-annex](https://git-annex.branchable.com/)
 
 ```sh
