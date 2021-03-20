@@ -27,6 +27,9 @@ $ git clone ssh://git@localhost:2200/testing.git
 
 `sudo docker` may be replaced with `podman`.
 
+Pre-built docker images are available at https://hub.docker.com/r/fphammerle/gitolite/tags
+(mirror: https://quay.io/repository/fphammerle/gitolite?tab=tags)
+
 Annotation of signed git tags `docker/*` contains docker image digests: https://github.com/fphammerle/docker-gitolite/tags
 
 Detached signatures of images are available at https://github.com/fphammerle/container-image-sigstore
