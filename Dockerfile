@@ -22,6 +22,9 @@ RUN apt-get update \
     && if grep --extended-regex --invert-match '^[a-z0-9_-]+:[\*!]:' /etc/shadow; then exit 1; fi \
     && mkdir "$SSHD_HOST_KEYS_DIR" \
     && chown -c "$USER" "$SSHD_HOST_KEYS_DIR"
+# TODO merge up
+RUN sed --in-place '/ENABLE => \[/a \\n            '"'git-annex-shell ua'," \
+        /usr/share/gitolite3/lib/Gitolite/Rc.pm
 VOLUME $GITOLITE_HOME_PATH
 VOLUME $SSHD_HOST_KEYS_DIR
 
