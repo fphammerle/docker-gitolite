@@ -23,7 +23,7 @@ services:
     cap_drop: [ALL]
     security_opt: [no-new-privileges]
     # docker-compose >=2.2,<3
-    cpus: 0.4
+    cpus: 0.8
     mem_limit: 64M
 
 # https://docs.docker.com/compose/compose-file/compose-file-v2/
