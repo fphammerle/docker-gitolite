@@ -17,6 +17,8 @@ HostKeyAlgorithms ssh-ed25519,ssh-ed25519-cert-v01@openssh.com,rsa-sha2-256,rsa-
 
 UsePAM no
 PermitRootLogin no
+AllowUsers git
+PubkeyAuthentication yes
 PasswordAuthentication no
 ChallengeResponseAuthentication no
 StrictModes no
