@@ -23,9 +23,12 @@ PasswordAuthentication no
 ChallengeResponseAuthentication no
 StrictModes no
 
+DisableForwarding yes
 AllowAgentForwarding no
+AllowStreamLocalForwarding no
 AllowTcpForwarding no
 GatewayPorts no
+PermitTunnel no
 X11Forwarding no
 PermitUserEnvironment no
 PrintMotd no
