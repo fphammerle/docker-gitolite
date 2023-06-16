@@ -1,4 +1,4 @@
-FROM docker.io/debian:11.7-slim
+FROM docker.io/debian:12.0-slim
 
 ARG GITOLITE_PACKAGE_VERSION=3.6.12-1
 ARG GIT_ANNEX_PACKAGE_VERSION=8.20210223-2
