@@ -1,9 +1,16 @@
-FROM docker.io/debian:11.7-slim
+FROM docker.io/debian:12.0-slim
 
 ARG GITOLITE_PACKAGE_VERSION=3.6.12-1
-ARG GIT_ANNEX_PACKAGE_VERSION=8.20210223-2
-ARG GIT_PACKAGE_VERSION=1:2.30.2-1+deb11u2
-ARG OPENSSH_SERVER_PACKAGE_VERSION=1:8.4p1-5+deb11u1
+# https://git-annex.branchable.com/news/
+# https://git.joeyh.name/index.cgi/git-annex.git/refs/
+# https://salsa.debian.org/haskell-team/git-annex/-/blob/master/CHANGELOG
+# https://salsa.debian.org/haskell-team/git-annex/-/blob/master/debian/changelog
+ARG GIT_ANNEX_PACKAGE_VERSION=10.20230126-3
+# https://github.com/git/git/tree/master/Documentation/RelNotes
+ARG GIT_PACKAGE_VERSION=1:2.39.2-1.1
+# https://www.openssh.com/releasenotes.html
+# https://salsa.debian.org/ssh-team/openssh/-/blob/master/debian/changelog
+ARG OPENSSH_SERVER_PACKAGE_VERSION=1:9.2p1-2
 ARG TINI_PACKAGE_VERSION=0.19.0-1
 ARG USER=git
 ARG GITOLITE_HOME_PATH=/var/lib/gitolite
