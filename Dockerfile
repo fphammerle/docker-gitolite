@@ -7,7 +7,7 @@ ARG GITOLITE_PACKAGE_VERSION=3.6.12-1
 # https://salsa.debian.org/haskell-team/git-annex/-/blob/master/debian/changelog
 ARG GIT_ANNEX_PACKAGE_VERSION=10.20230126-3
 # https://github.com/git/git/tree/master/Documentation/RelNotes
-ARG GIT_PACKAGE_VERSION=1:2.39.2-1.1
+ARG GIT_PACKAGE_VERSION=1:2.39.5-0+deb12u1
 # https://www.openssh.com/releasenotes.html
 # https://salsa.debian.org/ssh-team/openssh/-/blob/master/debian/changelog
 ARG OPENSSH_SERVER_PACKAGE_VERSION=1:9.2p1-2+deb12u3
