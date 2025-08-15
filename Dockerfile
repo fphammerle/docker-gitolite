@@ -1,4 +1,4 @@
-FROM docker.io/debian:12.11-slim
+FROM docker.io/debian:13.0-slim
 
 ARG GITOLITE_PACKAGE_VERSION=3.6.12-1
 # https://git-annex.branchable.com/news/
